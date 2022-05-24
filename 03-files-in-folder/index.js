@@ -8,7 +8,7 @@ async function getFiles() {
         for (const file of files) {
             stat(path.join(__dirname, 'secret-folder', file), (err, stats) => {
                 if (!stats.isDirectory()) {
-                    console.log(file + ' - ' + path.extname(file).slice(1) + ' - ' + stats.size + ' byte');
+                    console.log(path.parse(file).name + ' - ' + path.extname(file).slice(1) + ' - ' + stats.size + ' byte');
                 }
             });
         }
